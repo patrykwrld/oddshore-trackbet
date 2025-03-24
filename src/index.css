@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-arcade-dark to-arcade-purple/30 text-arcade-light min-h-screen;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-arcade-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-arcade-cyan rounded-full hover:bg-arcade-yellow transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .arcade-card {
+    @apply bg-gradient-arcade border-2 border-arcade-cyan/50 rounded-xl shadow-arcade 
+           backdrop-blur-sm transition-all duration-300 hover:shadow-arcade-hover
+           hover:border-arcade-cyan;
+  }
+  
+  .arcade-button {
+    @apply bg-arcade-cyan text-arcade-dark font-bold py-2.5 px-5 rounded-lg
+           hover:bg-arcade-yellow transition-all duration-300 transform hover:scale-105
+           focus:outline-none focus:ring-2 focus:ring-arcade-cyan focus:ring-opacity-50
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .arcade-input {
+    @apply bg-arcade-dark/80 border-2 border-arcade-cyan/50 rounded-lg px-4 py-2.5
+           focus:outline-none focus:ring-2 focus:ring-arcade-cyan focus:border-arcade-cyan
+           placeholder-gray-500 text-arcade-light transition-all duration-300
+           hover:border-arcade-cyan/75;
+  }
+
+  .arcade-select {
+    @apply bg-arcade-dark/80 border-2 border-arcade-cyan/50 rounded-lg px-4 py-2.5
+           focus:outline-none focus:ring-2 focus:ring-arcade-cyan focus:border-arcade-cyan 
+           text-arcade-light transition-all duration-300
+           hover:border-arcade-cyan/75 appearance-none cursor-pointer;
+  }
+
+  .stats-card {
+    @apply arcade-card p-6 relative overflow-hidden;
+  }
+
+  .stats-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-arcade-cyan/5 to-transparent opacity-50;
+  }
+
+  .table-header {
+    @apply bg-gradient-to-r from-arcade-dark to-arcade-purple/50 sticky top-0 z-10;
+  }
+
+  .table-row {
+    @apply transition-colors duration-300 hover:bg-arcade-purple/30 
+           border-b border-arcade-cyan/20;
+  }
+
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm transition-colors duration-300;
+  }
+
+  .form-group {
+    @apply space-y-1;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-arcade-cyan mb-1 transition-colors duration-300
+           group-hover:text-arcade-yellow;
+  }
+}
